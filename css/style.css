@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=Sriracha&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Oxanium", cursive;
+}
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(to bottom, rgb(121, 190, 223), #fff);
+  min-height: 100vh;
+}
+
+main {
+  display: inline-block;
+  margin-top: 8%;
+  padding: 15px;
+  position: relative;
+}
+
+.pokedex {
+  width: 100%;
+  max-width: 100%;
+}
+
+.pokemon_image {
+  position: absolute;
+  bottom: 55%;
+  left: 50%;
+  transform: translate(-63%, 20%);
+  height: 14%;
+}
+
+.pokemon_data {
+  position: absolute;
+  font-weight: 600;
+  color: #aaa;
+  top: 54.5%;
+  right: 27%;
+  font-size: clamp(8px, 5vw, 25px);
+}
+
+.pokemon_name {
+  color: rgb(61, 61, 61);
+  text-transform: capitalize;
+}
+
+.form {
+  position: absolute;
+  width: 65%;
+  top: 65%;
+  left: 13.5%;
+}
+
+.tampa_pokedex {
+  display: inline-block;
+  position: absolute;
+  width: 92.8%;
+  left: 1%;
+  bottom: 2.9%;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  border: 2px solid #000;
+}
+
+.efeito_pokedex {
+  animation-name: slide;
+  border-radius: 10px;
+}
+/*escorrega a tampa da pokedex para o lado direito da tela*/
+@keyframes slide {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(100%, 0);
+  }
+}
+
+.input_search {
+  width: 100%;
+  padding: 4%;
+  outline: none;
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #3a444d;
+  font-size: clamp(8px, 5vw, 1rem);
+  box-shadow: -3px 4px 0 #888, -5px 7px 0 #333;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 65%;
+  transform: translate(-57%, 0);
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  width: 50%;
+  padding: 4%;
+  border: 2.5px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  color: white;
+  background-color: #444;
+  box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+}
+
+.btn-shiny {
+  background-color: rgb(96, 55, 160);
+}
+
+/* Simular que o botão entrou quando pressionado*/
+.button:active {
+  box-shadow: inset -4px 4px 0 #222;
+  font-size: 0.9rem;
+}
