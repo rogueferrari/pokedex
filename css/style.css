@@ -35,6 +35,20 @@ main {
   height: 14%;
 }
 
+.pokemon_shiny {
+  position: absolute;
+  height: 16%;
+  bottom: 55%;
+}
+
+.pokemon_prev {
+  height: 14%;
+}
+
+.pokemon_next {
+  height: 14%;
+}
+
 .pokemon_data {
   position: absolute;
   font-weight: 600;

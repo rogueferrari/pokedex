@@ -86,11 +86,20 @@ buttonNext.addEventListener("click", () => {
 
 buttonShiny.addEventListener("click", () => {
   console.log(data);
-  pokemonName.innerHTML = data.species.name;
-  pokemonNumber.innerHTML = data.id;
-  pokemonImage.src =
-    data["sprites"]["versions"]["generation-v"]["black-white"]["front_shiny"];
+  if (data.id < 650) {
+    pokemonName.innerHTML = data.species.name;
+    pokemonNumber.innerHTML = data.id;
+    pokemonImage.src =
+      data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
+        "front_shiny"
+      ];
+  } else {
+    pokemonImage.src =
+      data["sprites"]["versions"]["generation-v"]["black-white"]["front_shiny"];
+  }
 });
+
 document.getElementById("tampa-pokedex").classList.add("efeito_pokedex");
+
 //inicializa a pokedex com o primeiro pokemon
 renderPokemon(searchPokemon);
