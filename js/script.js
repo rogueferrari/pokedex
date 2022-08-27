@@ -100,7 +100,12 @@ buttonShiny.addEventListener("click", () => {
   }
 });
 
+//utiliza a id do elemento para associar à uma classe e suas propriedades slide tampa
 document.getElementById("tampa-pokedex").classList.add("efeito_pokedex");
 
 //inicializa a pokedex com o primeiro pokemon
 renderPokemon(searchPokemon);
+
+/* teste para aumentar tamanho de pokemon
+document.getElementById("pokemon-image").classList.add("pokemon-teste");
+*/
