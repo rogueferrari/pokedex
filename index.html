@@ -17,9 +17,20 @@
 </head>
 
 <body>
+  <audio id="audioPlayer" autoplay></audio>
+
 
   <main>
     <img src="#" alt="pokemon" class="pokemon_image" id="pokemon-image">
+
+    <section class="pokemon_info">
+      <p class="type">Type: <span class="element_type"></span></p>
+      <p class="ability">Ability: <span class="element_ability"></span> </p>
+    </section>
+
+    <section class="section-btn-shiny">
+      <button class="button btn-shiny">Shiny</button>
+    </section>
 
     <h1 class="pokemon_data">
       <span class="pokemon_number"></span> -
@@ -30,11 +41,14 @@
       <input type="search" class="input_search" placeholder="name or number" required>
     </form>
 
+
     <div class="buttons">
-      <button class="button btn-prev">Prev &lt;</button>
-      <button class="button btn-shiny">Shiny</button>
+
+      <button class="button btn-prev">&lt; Prev </button>
+      <button class="button Alternate-front-back">Back</button>
       <button class="button btn-next">Next &gt;</button>
     </div>
+
 
     <img src="img/pokedex.png" alt="pokedex" class="pokedex">
 

@@ -11,6 +11,7 @@ body {
   background: linear-gradient(to bottom, rgb(121, 190, 223), #fff);
   min-height: 100vh;
   overflow-x: hidden;
+  
 }
 
 main {
@@ -27,10 +28,47 @@ main {
 
 .pokemon_image {
   position: absolute;
-  bottom: 55%;
+  bottom: 56%;
   left: 50%;
   transform: translate(-63%, 20%);
-  height: 14%;
+  height: 16%;
+  width: 25%;
+}
+
+.pokemon_info {
+  position: absolute;
+  bottom: 49%;
+  left: 20%;
+}
+
+.type {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.element_type {
+  text-transform: capitalize;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ability {
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.element_ability {
+  text-transform: capitalize;
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.section-btn-shiny {
+  position: absolute;
+  bottom: 18.5%;
+  left: 36.5%;
 }
 
 .pokemon_data {
@@ -116,10 +154,19 @@ main {
   color: white;
   background-color: #444;
   box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+  cursor: pointer;
 }
 
 .btn-shiny {
+  width: 85px;
+  height: 45px;
+  border: 2.5px solid #000;
+  border-radius: 5px;
+  font-size: clamp(8px, 5vw, 1rem);
+  font-weight: 600;
+  box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
   background-color: rgb(96, 55, 160);
+  cursor: pointer;
 }
 
 /* Simular que o botão entrou quando pressionado*/
@@ -136,6 +183,43 @@ main {
     position: relative;
     overflow-x: hidden;
   }
+  .buttons {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    width: 65%;
+    transform: translate(-55.5%, 0);
+    display: flex;
+    gap: 20px;
+  }
+  .button {
+    width: 30%;
+    padding: 3%;
+    border: 2.5px solid #000;
+    border-radius: 5px;
+    font-size: clamp(6px, 5vw, 0.82rem);
+    font-weight: 600;
+    color: white;
+    background-color: #444;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    cursor: pointer;
+  }
+  .btn-shiny {
+    width: 80px;
+    height: 35px;
+    border: 2.5px solid #000;
+    border-radius: 5px;
+    font-size: clamp(8px, 5vw, 0.82rem);
+    font-weight: 600;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    background-color: rgb(96, 55, 160);
+    cursor: pointer;
+  }
+  .section-btn-shiny {
+    position: absolute;
+    bottom: 18.5%;
+    left: 38%;
+  }
 }
 
 @media (max-width: 1135px) {
@@ -146,4 +230,5 @@ main {
     position: relative;
     overflow-x: hidden;
   }
+  
 }
