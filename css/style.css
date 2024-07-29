@@ -205,8 +205,8 @@ main {
     cursor: pointer;
   }
   .btn-shiny {
-    width: 80px;
-    height: 35px;
+    width: 64px;
+    height: 33px;
     border: 2.5px solid #000;
     border-radius: 5px;
     font-size: clamp(8px, 5vw, 0.82rem);
@@ -217,8 +217,8 @@ main {
   }
   .section-btn-shiny {
     position: absolute;
-    bottom: 18.5%;
-    left: 38%;
+    bottom: 18.2%;
+    left: 37.8%;
   }
 }
 
