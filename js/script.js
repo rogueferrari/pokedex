@@ -123,16 +123,20 @@ alternateFrontBack.addEventListener('click', () => {
 function addFrontShiny() {
   if (pokemonImage.classList.toggle('active-shiny')) {
     pokemonImage.src = data['sprites']['front_shiny'];
+    buttonShiny.innerHTML = 'Default';
   } else {
     pokemonImage.src = data['sprites']['front_default'];
+    buttonShiny.innerHTML = 'Shiny';
   }
 }
 
 function addBackShiny() {
   if (pokemonImage.classList.toggle('active-shiny')) {
     pokemonImage.src = data['sprites']['back_shiny'];
+    buttonShiny.innerHTML = 'Default';
   } else {
     pokemonImage.src = data['sprites']['back_default'];
+    buttonShiny.innerHTML = 'Shiny';
   }
 }
 
