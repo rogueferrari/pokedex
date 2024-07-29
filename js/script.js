@@ -40,6 +40,7 @@ const renderPokemon = async (pokemon) => {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.src = url;
     audioPlayer.play();
+    pokemonImage.classList.add('front-default');
   }
 
   data = await fetchPokemon(pokemon);
@@ -98,25 +99,51 @@ buttonNext.addEventListener('click', () => {
   clearAbility();
 });
 
+function removeClass() {
+  pokemonImage.classList.remove('active-shiny');
+}
+
 alternateFrontBack.addEventListener('click', () => {
   console.log(data);
 
   if (pokemonImage.classList.toggle('back-default')) {
     pokemonImage.src = data['sprites']['back_default'];
     alternateFrontBack.innerHTML = 'Front';
+    pokemonImage.classList.remove('front-default');
+    removeClass();
   } else {
     pokemonImage.src = data['sprites']['front_default'];
     alternateFrontBack.innerHTML = 'Back';
+    pokemonImage.classList.add('front-default');
+    removeClass();
   }
 });
 
-//busca pokemon shiny
-buttonShiny.addEventListener('click', () => {
-  console.log(data);
-  if (pokemonImage.classList.contains('back-default')) {
+//buscar pokemon shiny
+function addFrontShiny() {
+  if (pokemonImage.classList.toggle('active-shiny')) {
+    pokemonImage.src = data['sprites']['front_shiny'];
+  } else {
+    pokemonImage.src = data['sprites']['front_default'];
+  }
+}
+
+function addBackShiny() {
+  if (pokemonImage.classList.toggle('active-shiny')) {
     pokemonImage.src = data['sprites']['back_shiny'];
   } else {
-    pokemonImage.src = data['sprites']['front_shiny'];
+    pokemonImage.src = data['sprites']['back_default'];
+  }
+}
+
+buttonShiny.addEventListener('click', () => {
+  console.log(data);
+  if (pokemonImage.classList.contains('front-default')) {
+    addFrontShiny();
+  } else if (pokemonImage.classList.contains('back-default')) {
+    addBackShiny();
+  } else {
+    console.log('problema');
   }
 });
 
