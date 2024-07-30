@@ -180,7 +180,6 @@ buttonShiny.addEventListener('click', () => {
 
 buttonOnOff.addEventListener('click', () => {
   if (tampaPokedex.classList.contains('close')) {
-    buttonOnOff.preventDefault();
     document
       .getElementById('tampa-pokedex')
       .classList.toggle('efeito_pokedex_open');
@@ -194,7 +193,6 @@ buttonOnOff.addEventListener('click', () => {
     frameOff.classList.toggle('turn-off-frame');
     // buttonOnOff.classList.toggle('iluminate-botton');
   } else if (tampaPokedex.classList.contains('init')) {
-    buttonOnOff.preventDefault();
     document
       .getElementById('tampa-pokedex')
       .classList.toggle('efeito_pokedex_close');
