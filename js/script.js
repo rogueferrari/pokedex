@@ -10,6 +10,10 @@ const elementType = document.querySelector('.element_type');
 const ability = document.querySelector('.ability');
 const elementAbility = document.querySelector('.element_ability');
 const buttonShiny = document.querySelector('.btn-shiny');
+const buttonOnOff = document.querySelector('.on-off');
+const circleOnOff = document.querySelector('.circle-on-off');
+const tampaPokedex = document.querySelector('.tampa_pokedex');
+const frameOff = document.querySelector('.frame-off');
 
 // variável para inicializar a pokedex com o primeiro pokemon
 let searchPokemon = 1;
@@ -40,7 +44,8 @@ const renderPokemon = async (pokemon) => {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.src = url;
     audioPlayer.play();
-    pokemonImage.classList.add('front-default');
+
+    tampaPokedex.classList.add('init');
   }
 
   data = await fetchPokemon(pokemon);
@@ -57,9 +62,12 @@ const renderPokemon = async (pokemon) => {
     //chama as cries de cada pokemon
     playAudio(data.cries.latest);
 
+    pokemonImage.classList.add('front-default');
     console.log(data);
     input.value = '';
     searchPokemon = data.id;
+    circleOnOff.classList.add('iluminate-botton');
+    circleOnOff.innerHTML = 'ON';
   } else {
     pokemonName.innerHTML = 'Not Found :c';
     pokemonNumber.innerHTML = '';
@@ -68,6 +76,14 @@ const renderPokemon = async (pokemon) => {
     input.value = '';
   }
 };
+
+// function removeClassClose() {
+//   tampaPokedex.classList.remove('close');
+// }
+
+// if (tampaPokedex.classList.contains('close')) {
+//   removeClass();
+// }
 
 //limpa a habilidade quando muda de pokemon
 function clearAbility() {
@@ -151,8 +167,49 @@ buttonShiny.addEventListener('click', () => {
   }
 });
 
+//abrir e fechar a tampa da pokedex
+
+// function offPokedex() {
+//   pokemonImage.src = '';
+//   elementAbility.innerHTML = '';
+//   elementType.innerHTML = '';
+//   pokemonName.innerHTML = '';
+//   pokemonNumber.innerHTML = '';
+//   // ability.innerHTML = '';
+// }
+
+buttonOnOff.addEventListener('click', () => {
+  if (tampaPokedex.classList.contains('close')) {
+    document
+      .getElementById('tampa-pokedex')
+      .classList.toggle('efeito_pokedex_open');
+    tampaPokedex.classList.remove('close');
+    tampaPokedex.classList.add('open');
+    tampaPokedex.classList.remove('efeito_pokedex_close');
+    circleOnOff.classList.toggle('iluminate-botton');
+    circleOnOff.innerHTML = 'ON';
+    circleOnOff.classList.remove('turn-off-light');
+    renderPokemon(searchPokemon);
+    frameOff.classList.toggle('turn-off-frame');
+    // buttonOnOff.classList.toggle('iluminate-botton');
+  } else if (tampaPokedex.classList.contains('init')) {
+    document
+      .getElementById('tampa-pokedex')
+      .classList.toggle('efeito_pokedex_close');
+    tampaPokedex.classList.remove('open');
+    tampaPokedex.classList.add('close');
+    tampaPokedex.classList.remove('efeito_pokedex_open');
+    circleOnOff.classList.toggle('iluminate-botton');
+    circleOnOff.classList.add('turn-off-light');
+    circleOnOff.innerHTML = 'OFF';
+    frameOff.classList.toggle('turn-off-frame');
+    offPokedex();
+  } else {
+    console.log('problema');
+  }
+});
+
 //utiliza a id do elemento para associar à uma classe e suas propriedades slide tampa
-document.getElementById('tampa-pokedex').classList.add('efeito_pokedex');
 
 //inicializa a pokedex com o primeiro pokemon
 renderPokemon(searchPokemon);
