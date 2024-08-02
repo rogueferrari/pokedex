@@ -14,6 +14,9 @@ const buttonOnOff = document.querySelector('.on-off');
 const circleOnOff = document.querySelector('.circle-on-off');
 const tampaPokedex = document.querySelector('.tampa_pokedex');
 const frameOff = document.querySelector('.frame-off');
+const audioDefault = document.querySelector('.audio-default');
+const muteButton = document.querySelector('.mute-button');
+const audioShiny = document.querySelector('.audio-shiny');
 
 // variável para inicializar a pokedex com o primeiro pokemon
 let searchPokemon = 1;
@@ -43,7 +46,8 @@ const renderPokemon = async (pokemon) => {
   function playAudio(url) {
     const audioPlayer = document.getElementById('audioPlayer');
     audioPlayer.src = url;
-    audioPlayer.play();
+    // audioPlayer.play();
+    audioPlayer.volume = 0.05;
 
     tampaPokedex.classList.add('init');
   }
@@ -76,6 +80,22 @@ const renderPokemon = async (pokemon) => {
     input.value = '';
   }
 };
+
+//inicia a música ambiente com o volume no mínimo
+audioDefault.volume = 0.04;
+audioShiny.volume = 0.05;
+
+muteButton.addEventListener('click', () => {
+  if (!audioDefault.muted) {
+    audioDefault.pause();
+    audioDefault.muted = true;
+    muteButton.innerHTML = 'Retake';
+  } else {
+    audioDefault.play();
+    audioDefault.muted = false;
+    muteButton.innerHTML = 'Pause';
+  }
+});
 
 // function removeClassClose() {
 //   tampaPokedex.classList.remove('close');
@@ -127,11 +147,13 @@ alternateFrontBack.addEventListener('click', () => {
     alternateFrontBack.innerHTML = 'Front';
     pokemonImage.classList.remove('front-default');
     removeClass();
+    audioShiny.muted = true;
   } else {
     pokemonImage.src = data['sprites']['front_default'];
     alternateFrontBack.innerHTML = 'Back';
     pokemonImage.classList.add('front-default');
     removeClass();
+    audioShiny.muted = true;
   }
 });
 
@@ -140,9 +162,14 @@ function addFrontShiny() {
   if (pokemonImage.classList.toggle('active-shiny')) {
     pokemonImage.src = data['sprites']['front_shiny'];
     buttonShiny.innerHTML = 'Default';
+    audioShiny.play();
+    if (audioShiny.muted) {
+      audioShiny.muted = false;
+    }
   } else {
     pokemonImage.src = data['sprites']['front_default'];
     buttonShiny.innerHTML = 'Shiny';
+    audioShiny.muted = true;
   }
 }
 
@@ -150,9 +177,14 @@ function addBackShiny() {
   if (pokemonImage.classList.toggle('active-shiny')) {
     pokemonImage.src = data['sprites']['back_shiny'];
     buttonShiny.innerHTML = 'Default';
+    audioShiny.play();
+    if (audioShiny.muted) {
+      audioShiny.muted = false;
+    }
   } else {
     pokemonImage.src = data['sprites']['back_default'];
     buttonShiny.innerHTML = 'Shiny';
+    audioShiny.muted = true;
   }
 }
 
