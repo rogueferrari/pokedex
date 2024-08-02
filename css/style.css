@@ -273,6 +273,11 @@ main {
   font-size: 0.9rem;
 }
 
+.mute-button:active {
+  box-shadow: inset -4px 4px 0 #3738a8;
+  font-size: 0.9rem;
+}
+
 .section-button-mute {
   position: absolute;
   top: 11%;
@@ -289,6 +294,7 @@ main {
   letter-spacing: 2px;
   cursor: pointer;
   color: #29569D;
+  box-shadow: -2px 3px 0 #093c8f, -4px 6px 0 #29569D;
 }
 
 @media (max-width: 455px) {
